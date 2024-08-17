@@ -1,5 +1,5 @@
 <script>
-	import PosterGenerator from "./PosterGenerator.svelte";
+	import PosterGenerator from "../components/posterGenerator/PosterGenerator.svelte";
 </script>
 
 <svelte:head>

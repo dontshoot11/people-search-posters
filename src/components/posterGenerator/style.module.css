@@ -1,0 +1,47 @@
+.form {
+	display: grid;
+	gap: 1rem;
+}
+.label {
+	display: grid;
+}
+.format-options {
+	display: flex;
+	gap: 1rem;
+}
+
+.poster {
+	margin-top: 20px;
+	&.pdf {
+		padding: 20px;
+		width: 600px;
+		height: 800px;
+		background-color: #fff;
+		h1 {
+			color: #000;
+			font-size: 48px;
+		}
+	}
+
+	&.instagram {
+		padding: 20px;
+		width: 400px;
+		height: 400px;
+		background-color: #efefef;
+		border: 1px solid #000;
+		h1 {
+			color: #000;
+		}
+	}
+
+	&.telegram {
+		padding: 20px;
+		width: 400px;
+		height: 200px;
+		background-color: #efefef;
+		border-radius: 1px solid #000;
+		h1 {
+			color: #000;
+		}
+	}
+}
