@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       - name: Install dependencies
         run: npm install
@@ -24,6 +24,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: git add build
-        run: git commit -m "Deploy to GitHub Pages"
-        run: git push origin main
+        run: |
+          git add build
+          git commit -m "Deploy to GitHub Pages"
+          git push origin main
