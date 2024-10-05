@@ -1,0 +1,105 @@
+.poster {
+  flex-shrink: 0;
+  border: 12rem dashed var(--accent-color);
+  padding: 33rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &.igstory {
+    width: 540rem;
+    height: 960rem;
+  }
+}
+
+.photoWrap {
+  overflow: hidden;
+  position: relative;
+  background-repeat: no-repeat;
+  background-color: var(--accent-color);
+}
+
+.infoBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rem;
+  border-bottom: 3rem solid var(--accent-color);
+  padding-bottom: 33rem;
+}
+
+.infoBlockTextContent {
+  flex: 1;
+  overflow: hidden;
+}
+
+.nameBlock {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  font-size: 40rem;
+  line-height: 120%;
+  font-weight: 900;
+  padding: 4rem 14rem;
+}
+
+.nameBlockEl {
+  display: block;
+}
+
+.ageBlock {
+  color: var(--font-secondary);
+  margin-top: 1em;
+}
+
+.age {
+  font-weight: 900;
+  font-size: 24rem;
+  line-height: 18rem;
+}
+
+.birthdate {
+  font-size: 16rem;
+  line-height: 112%;
+}
+
+.circumstancesBlock {
+  color: var(--font-secondary);
+  font-size: 16rem;
+  line-height: 112%;
+}
+
+.circumstancesBlockEl {
+  margin-top: 1em;
+  white-space: pre-wrap;
+}
+
+.title {
+  padding: 24rem 0 36rem 0;
+  font-weight: 900;
+  font-size: 72rem;
+  line-height: 90%;
+  letter-spacing: -2.5rem;
+  border-bottom: 3rem solid var(--accent-color);
+  text-align: center;
+}
+
+.note {
+  padding: 20rem 0 30rem 0;
+  font-weight: 900;
+  font-size: 25rem;
+  line-height: 110%;
+  border-bottom: 3rem solid var(--accent-color);
+  text-align: center;
+}
+
+.contacts {
+  padding: 30rem 0;
+  font-weight: 900;
+  font-size: 38rem;
+  line-height: 90%;
+}
+
+.igstory {
+  .photoWrap {
+    width: 219rem;
+    height: 336rem;
+  }
+}

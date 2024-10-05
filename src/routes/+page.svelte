@@ -1,22 +1,12 @@
 <script>
-	import PosterGenerator from "../components/posterGenerator/PosterGenerator.svelte";
+  import PosterGenerator from "../pageComponents/posterGenerator/PosterGenerator.svelte";
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+  <title>Home</title>
+  <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
 <section>
-	<PosterGenerator />
+  <PosterGenerator />
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-</style>

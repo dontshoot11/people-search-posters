@@ -1,0 +1,32 @@
+.form {
+  width: 560rem;
+  display: grid;
+  gap: 16rem;
+  height: fit-content;
+}
+.label {
+  display: grid;
+}
+.format-options {
+  display: flex;
+  gap: 20rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rem;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  height: 40rem;
+  width: 240rem;
+  border-radius: 8px;
+  transition: border-radius 300ms;
+  &:hover {
+    border-radius: 16px;
+  }
+}
