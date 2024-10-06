@@ -79,6 +79,10 @@
   letter-spacing: -2.5rem;
   border-bottom: 3rem solid var(--accent-color);
   text-align: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 .note {

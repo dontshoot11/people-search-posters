@@ -3,9 +3,10 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20rem;
-  max-width: 1440rem;
+  max-width: 1240rem;
+  margin: 0 auto;
   gap: 20rem;
-  @media (min-width: 768px) {
+  @media (min-width: 960px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
