@@ -47,7 +47,7 @@
 <div
   id="poster"
   class={`${styles.poster} ${styles[format]}`}
-  data-role="text-container"
+  data-container="text-container"
 >
   <div class={styles.infoBlock}>
     <div
@@ -55,32 +55,37 @@
       style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: cover; "
     ></div>
     <div class={styles.infoBlockTextContent}>
-      <div class={styles.nameBlock} data-role="text-container">
-        <span class={styles.nameBlockEl} data-role="text-block">{name}</span>
-        <span class={styles.nameBlockEl} data-role="text-block">{surname}</span>
+      <div class={styles.nameBlock} data-container="text-container">
+        <span class={styles.nameBlockEl} data-block="text-block">{name}</span>
+        <span class={styles.nameBlockEl} data-block="text-block">{surname}</span
+        >
       </div>
-      <div class={styles.ageBlock} data-role="text-container">
-        <span class={styles.age} data-role="text-block">{age}</span>
-        <span class={styles.birthdate} data-role="text-block">
+      <div class={styles.ageBlock} data-container="text-container">
+        <span class={styles.age} data-block="text-block">{age}</span>
+        <span class={styles.birthdate} data-block="text-block">
           ({birthdate})
         </span>
       </div>
-      <div class={styles.circumstancesBlock} data-role="text-container">
-        <div class={styles.circumstancesBlockEl} data-role="text-block">
+      <div
+        class={styles.circumstancesBlock}
+        data-container="text-container"
+        data-block="text-block"
+      >
+        <div class={styles.circumstancesBlockEl}>
           {location}
         </div>
-        <div class={styles.circumstancesBlockEl} data-role="text-block">
+        <div class={styles.circumstancesBlockEl}>
           {circumstances}
         </div>
-        <div class={styles.circumstancesBlockEl} data-role="text-block">
+        <div class={styles.circumstancesBlockEl}>
           {identifyingFeatures}
         </div>
       </div>
     </div>
   </div>
-  <div class={styles.title} data-role="text-block">{title}</div>
+  <div class={styles.title} data-block="text-block">{title}</div>
   {#if note.length > 0}
-    <div class={styles.note} data-role="text-block">{note}</div>
+    <div class={styles.note} data-block="text-block">{note}</div>
   {/if}
-  <div class={styles.contacts} data-role="text-block">{contacts}</div>
+  <div class={styles.contacts} data-block="text-block">{contacts}</div>
 </div>
