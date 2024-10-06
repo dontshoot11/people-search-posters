@@ -12,10 +12,20 @@
 }
 
 .photoWrap {
-  overflow: hidden;
   position: relative;
   background-repeat: no-repeat;
   background-color: var(--accent-color);
+  &:before {
+    content: "";
+    position: absolute;
+    background: url("./img/find_me.svg") no-repeat center;
+    background-size: contain;
+    height: 75rem;
+    width: 75rem;
+    flex-shrink: 0;
+    bottom: -20rem;
+    left: -20rem;
+  }
 }
 
 .infoBlock {
@@ -99,6 +109,18 @@
   font-weight: 900;
   font-size: 38rem;
   line-height: normal;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  &:before {
+    content: "";
+    background: url("./img/phone.svg") no-repeat center;
+    background-size: contain;
+    height: 1em;
+    width: 1em;
+    flex-shrink: 0;
+  }
 }
 
 .igstory {

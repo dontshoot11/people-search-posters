@@ -15,5 +15,5 @@ export const formData = writable<TFormData>({
   file: "",
   photoPositionX: 50,
   photoPositionY: 50,
-  contacts: "Call these numbers for contact",
+  contacts: "192 / another number",
 });
