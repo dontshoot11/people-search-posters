@@ -72,7 +72,7 @@
 }
 
 .title {
-  padding: 24rem 0 36rem 0;
+  padding: 0.33em 0 0.5em 0;
   font-weight: 900;
   font-size: 72rem;
   line-height: normal;
@@ -82,7 +82,7 @@
 }
 
 .note {
-  padding: 20rem 0 30rem 0;
+  padding: 0.8em 0 1.2em 0;
   font-weight: 900;
   font-size: 25rem;
   line-height: normal;
@@ -91,7 +91,7 @@
 }
 
 .contacts {
-  padding: 30rem 0;
+  padding: 0.79em 0;
   font-weight: 900;
   font-size: 38rem;
   line-height: normal;
