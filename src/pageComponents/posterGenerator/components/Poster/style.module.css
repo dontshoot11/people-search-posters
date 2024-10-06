@@ -48,6 +48,8 @@
   line-height: normal;
   font-weight: 900;
   padding: 4rem 14rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .nameBlockEl {
@@ -126,6 +128,7 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5em;
   &:before {
     content: "";

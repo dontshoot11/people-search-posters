@@ -12,6 +12,7 @@ export type TFormData = {
   note: string;
   file: string;
   contacts: string;
+  photoScale: number;
   photoPositionX: number;
   photoPositionY: number;
   format: TFormat;

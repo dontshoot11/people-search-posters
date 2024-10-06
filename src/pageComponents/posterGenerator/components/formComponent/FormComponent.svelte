@@ -20,9 +20,12 @@
     format,
     name,
     surname,
+    photoScale,
     photoPositionX,
     photoPositionY,
   } = get(formData);
+
+  let showImageSettings = false;
 
   function updateField<K extends keyof TFormData>(
     field: K,
@@ -88,10 +91,57 @@
       />
     </label>
   </div>
-  <label class={styles.label}>
-    Upload Photo
-    <input type="file" accept="image/*" on:change={handleFileUpload} />
-  </label>
+  <div class={styles.formGrid}>
+    <label class={styles.label}>
+      Upload Photo
+      <input type="file" accept="image/*" on:change={handleFileUpload} />
+    </label>
+    <label class={styles.label}>
+      Show image settings
+      <input
+        class={styles.checkbox}
+        type="checkbox"
+        bind:checked={showImageSettings}
+      />
+    </label>
+    {#if showImageSettings}
+      <div class={styles.imageSettings}>
+        <label class={styles.label}>
+          Photo scale ({photoScale}%)
+          <input
+            class={styles.rangeInput}
+            type="range"
+            min="0"
+            max="500"
+            bind:value={photoScale}
+            on:input={(e) => handleInput(e, "photoScale")}
+          />
+        </label>
+        <label class={styles.label}>
+          Photo horizontal position ({photoPositionX}%)
+          <input
+            class={styles.rangeInput}
+            type="range"
+            min="0"
+            max="100"
+            bind:value={photoPositionX}
+            on:input={(e) => handleInput(e, "photoPositionX")}
+          />
+        </label>
+        <label class={styles.label}>
+          Photo vertical position ({photoPositionY}%)
+          <input
+            class={styles.rangeInput}
+            type="range"
+            min="0"
+            max="100"
+            bind:value={photoPositionY}
+            on:input={(e) => handleInput(e, "photoPositionY")}
+          />
+        </label>
+      </div>
+    {/if}
+  </div>
   <div class={styles.formGrid}>
     <label class={styles.label}>
       Age
@@ -186,27 +236,6 @@
       <option value="fbpost">Facebook Post</option>
     </select>
   </div>
-  <label class={styles.label}>
-    Photo horizontal position ({photoPositionX}%)
-    <input
-      class={styles.rangeInput}
-      type="range"
-      min="0"
-      max="100"
-      bind:value={photoPositionX}
-      on:input={(e) => handleInput(e, "photoPositionX")}
-    />
-  </label>
-  <label class={styles.label}>
-    Photo vertical position ({photoPositionY}%)
-    <input
-      class={styles.rangeInput}
-      type="range"
-      min="0"
-      max="100"
-      bind:value={photoPositionY}
-      on:input={(e) => handleInput(e, "photoPositionY")}
-    />
-  </label>
+
   <button class={styles.button} type="submit">Generate Poster</button>
 </form>

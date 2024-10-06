@@ -13,6 +13,7 @@ export const formData = writable<TFormData>({
   note: "Additional information",
   format: "igstory",
   file: "",
+  photoScale: 100,
   photoPositionX: 50,
   photoPositionY: 50,
   contacts: "192 / another number",

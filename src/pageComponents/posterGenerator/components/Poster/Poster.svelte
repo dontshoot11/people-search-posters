@@ -18,6 +18,7 @@
     note,
     contacts,
     file,
+    photoScale,
     photoPositionY,
     photoPositionX,
   } = get(formData);
@@ -35,6 +36,7 @@
     note = data.note;
     contacts = data.contacts;
     file = data.file;
+    photoScale = data.photoScale;
     photoPositionY = data.photoPositionY;
     photoPositionX = data.photoPositionX;
   });
@@ -52,7 +54,7 @@
   <div class={styles.infoBlock}>
     <div
       class={styles.photoWrap}
-      style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: cover; "
+      style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: {photoScale}%; "
     ></div>
     <div class={styles.infoBlockTextContent}>
       <div class={styles.nameBlock} data-container="text-container">

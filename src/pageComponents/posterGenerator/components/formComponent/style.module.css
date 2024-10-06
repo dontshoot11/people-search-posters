@@ -8,6 +8,13 @@
   display: grid;
   gap: 6rem;
 }
+
+.checkbox {
+  width: 20rem;
+  height: 20rem;
+  cursor: pointer;
+}
+
 .format-options {
   display: flex;
   gap: 20rem;
@@ -37,5 +44,19 @@
   transition: border-radius 300ms;
   &:hover {
     border-radius: 16px;
+  }
+}
+
+.imageSettings {
+  padding: 20rem;
+  width: 200rem;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  position: fixed;
+  right: 20rem;
+  bottom: 20rem;
+  border: 1px solid var(--accent-color);
+  input {
+    width: 100%;
   }
 }
