@@ -126,17 +126,18 @@
   </label>
   <label class={styles.label}>
     Circumstances of the missing
-    <input
-      type="circumstances"
+    <textarea
+      class={styles.textareaBig}
       bind:value={circumstances}
       on:input={(e) => handleInput(e, "circumstances")}
       required
       placeholder="Circumstances of the missing"
-    />
+    ></textarea>
   </label>
   <label class={styles.label}>
     Identifying characteristics
     <textarea
+      class={styles.textareaBig}
       bind:value={identifyingFeatures}
       on:input={(e) => handleInput(e, "identifyingFeatures")}
       placeholder="Identifying features"
@@ -146,6 +147,7 @@
   <label class={styles.label}>
     Poster title
     <textarea
+      class={styles.textareaSmall}
       bind:value={title}
       on:input={(e) => handleInput(e, "title")}
       placeholder="title"
@@ -155,6 +157,7 @@
   <label class={styles.label}>
     Note
     <textarea
+      class={styles.textareaSmall}
       bind:value={note}
       on:input={(e) => handleInput(e, "note")}
       placeholder="note"
@@ -162,12 +165,12 @@
   </label>
   <label class={styles.label}>
     Contacts
-    <textarea
+    <input
       bind:value={contacts}
       on:input={(e) => handleInput(e, "contacts")}
       placeholder="contacts"
       required
-    ></textarea>
+    />
   </label>
   <div class={styles.formGroup}>
     <label class={styles.label} for="format-select">Choose format:</label>

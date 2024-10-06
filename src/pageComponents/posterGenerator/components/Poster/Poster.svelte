@@ -83,9 +83,13 @@
       </div>
     </div>
   </div>
-  <div class={styles.title} data-block="text-block">{title}</div>
-  {#if note.length > 0}
-    <div class={styles.note} data-block="text-block">{note}</div>
-  {/if}
-  <div class={styles.contacts} data-block="text-block">{contacts}</div>
+  <div class={styles.contactsBlock}>
+    <div class={styles.titleWrap}>
+      <div class={styles.title} data-block="text-block">{title}</div>
+    </div>
+    {#if note.length > 0}
+      <div class={styles.note} data-block="text-block">{note}</div>
+    {/if}
+    <div class={styles.contacts} data-block="text-block">{contacts}</div>
+  </div>
 </div>

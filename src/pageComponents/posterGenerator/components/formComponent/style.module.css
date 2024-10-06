@@ -13,6 +13,14 @@
   gap: 20rem;
 }
 
+.textareaBig {
+  min-height: 100rem;
+}
+
+.textareaSmall {
+  min-height: 50rem;
+}
+
 .formGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
