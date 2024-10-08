@@ -11,6 +11,7 @@
     surname,
     format,
     age,
+    agePostfix,
     birthdate,
     location,
     circumstances,
@@ -21,6 +22,7 @@
     photoScale,
     photoPositionY,
     photoPositionX,
+    showImageLabel,
   } = get(formData);
 
   formData.subscribe((data) => {
@@ -28,6 +30,7 @@
     name = data.name;
     surname = data.surname;
     age = data.age;
+    agePostfix = data.agePostfix;
     birthdate = data.birthdate;
     identifyingFeatures = data.identifyingFeatures;
     format = data.format;
@@ -39,6 +42,7 @@
     photoScale = data.photoScale;
     photoPositionY = data.photoPositionY;
     photoPositionX = data.photoPositionX;
+    showImageLabel = data.showImageLabel;
   });
 
   $: formData.subscribe(() => {
@@ -53,7 +57,7 @@
 >
   <div class={styles.infoBlock}>
     <div
-      class={styles.photoWrap}
+      class={`${styles.photoWrap} ${showImageLabel && styles.imageLabel}`}
       style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: {photoScale}%; "
     ></div>
     <div class={styles.infoBlockTextContent}>
@@ -63,9 +67,16 @@
         >
       </div>
       <div class={styles.ageBlock} data-container="text-container">
-        <span class={styles.age} data-block="text-block">{age}</span>
+        <div class={styles.ageWrap}>
+          {#if age}
+            <span class={styles.age} data-block="text-block">{age}</span>
+          {/if}
+          <span class={styles.age} data-block="text-block">{agePostfix}</span>
+        </div>
         <span class={styles.birthdate} data-block="text-block">
-          ({birthdate})
+          {#if birthdate}
+            ({birthdate})
+          {/if}
         </span>
       </div>
       <div

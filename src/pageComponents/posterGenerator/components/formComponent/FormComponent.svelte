@@ -10,8 +10,7 @@
 
   let {
     title,
-    age,
-    birthdate,
+    agePostfix,
     location,
     circumstances,
     note,
@@ -20,12 +19,17 @@
     format,
     name,
     surname,
+    showImageLabel,
     photoScale,
     photoPositionX,
     photoPositionY,
   } = get(formData);
 
   let showImageSettings = false;
+
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+  const currentDay = new Date().getDate();
 
   function updateField<K extends keyof TFormData>(
     field: K,
@@ -37,6 +41,24 @@
     }));
   }
 
+  function handleDateChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.value) {
+      const selectedDate = new Date(target.value);
+      updateField("birthdate", selectedDate.getFullYear());
+      let calculatedAge = currentYear - selectedDate.getFullYear();
+      if (
+        selectedDate.getMonth() > currentMonth ||
+        (selectedDate.getMonth() === currentMonth &&
+          selectedDate.getDate() > currentDay)
+      ) {
+        calculatedAge--;
+      }
+
+      updateField("age", calculatedAge);
+    }
+  }
+
   function handleInput(event: Event, field: keyof TFormData) {
     const target = event.target as HTMLInputElement;
     updateField(field, target.value);
@@ -45,6 +67,11 @@
   function handleSelect(event: Event) {
     const target = event.target as HTMLSelectElement;
     updateField("format", target.value as TFormData["format"]);
+  }
+
+  function handleCheckboxChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    updateField("showImageLabel", target.checked);
   }
 
   function handleFileUpload(event: Event) {
@@ -139,28 +166,36 @@
             on:input={(e) => handleInput(e, "photoPositionY")}
           />
         </label>
+        <label class={styles.label}>
+          Show image label
+          <input
+            class={styles.checkbox}
+            type="checkbox"
+            on:change={(e) => handleCheckboxChange(e)}
+            bind:checked={showImageLabel}
+          />
+        </label>
       </div>
     {/if}
   </div>
   <div class={styles.formGrid}>
     <label class={styles.label}>
-      Age
+      Age postfix
       <input
         type="text"
-        bind:value={age}
-        on:input={(e) => handleInput(e, "age")}
-        required
-        placeholder="Name"
+        bind:value={agePostfix}
+        on:input={(e) => handleInput(e, "agePostfix")}
+        placeholder="Enter age postfix"
       />
     </label>
     <label class={styles.label}>
-      Birthdate
+      Birth Year
       <input
-        type="text"
-        bind:value={birthdate}
-        on:input={(e) => handleInput(e, "birthdate")}
-        required
-        placeholder="Birthdate"
+        class={styles.datePicker}
+        type="date"
+        max={`${currentYear}-12-31`}
+        on:change={handleDateChange}
+        placeholder="Select birth date"
       />
     </label>
   </div>

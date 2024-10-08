@@ -15,16 +15,18 @@
   position: relative;
   background-repeat: no-repeat;
   background-color: var(--accent-color);
-  &:before {
-    content: "";
-    position: absolute;
-    background: url("./img/find_me.svg") no-repeat center;
-    background-size: contain;
-    height: 75rem;
-    width: 75rem;
-    flex-shrink: 0;
-    bottom: -20rem;
-    left: -20rem;
+  &.imageLabel {
+    &:before {
+      content: "";
+      position: absolute;
+      background: url("./img/find_me.svg") no-repeat center;
+      background-size: contain;
+      height: 75rem;
+      width: 75rem;
+      flex-shrink: 0;
+      bottom: -20rem;
+      left: -20rem;
+    }
   }
 }
 
@@ -59,6 +61,9 @@
 .ageBlock {
   color: var(--font-secondary);
   margin-top: 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .age {
@@ -70,6 +75,8 @@
 .birthdate {
   font-size: 16rem;
   line-height: normal;
+  height: 1em;
+  min-width: 3em;
 }
 
 .circumstancesBlock {

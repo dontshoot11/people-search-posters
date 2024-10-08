@@ -6,6 +6,7 @@
   max-width: 1240rem;
   margin: 0 auto;
   gap: 20rem;
+  position: relative;
   @media (min-width: 960px) {
     flex-direction: row;
     justify-content: space-between;

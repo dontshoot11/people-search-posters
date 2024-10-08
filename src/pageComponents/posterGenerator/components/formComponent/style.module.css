@@ -15,6 +15,10 @@
   cursor: pointer;
 }
 
+.datePicker {
+  cursor: pointer;
+}
+
 .format-options {
   display: flex;
   gap: 20rem;
@@ -48,15 +52,21 @@
 }
 
 .imageSettings {
+  z-index: 999;
   padding: 20rem;
   width: 200rem;
   background-color: var(--bg-color);
   border-radius: 16px;
-  position: fixed;
+  position: absolute;
   right: 20rem;
   bottom: 20rem;
   border: 1px solid var(--accent-color);
-  input {
+  @media (min-width: 960px) {
+    top: 20rem;
+    right: 20rem;
+    bottom: unset;
+  }
+  input:not(.checkbox) {
     width: 100%;
   }
 }

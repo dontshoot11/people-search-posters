@@ -4,8 +4,9 @@ export type TFormData = {
   title: string;
   name: string;
   surname: string;
-  age: string;
-  birthdate: number;
+  age: number | null;
+  agePostfix: string;
+  birthdate: number | null;
   location: string;
   circumstances: string;
   identifyingFeatures: string;
@@ -13,6 +14,7 @@ export type TFormData = {
   file: string;
   contacts: string;
   photoScale: number;
+  showImageLabel: boolean;
   photoPositionX: number;
   photoPositionY: number;
   format: TFormat;
