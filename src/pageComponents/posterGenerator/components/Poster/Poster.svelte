@@ -67,16 +67,27 @@
         class={`${styles.nameBlock} ${styles[format]}`}
         data-container="text-container"
       >
-        <span class={styles.nameBlockEl} data-block="text-block">{name}</span>
-        <span class={styles.nameBlockEl} data-block="text-block">{surname}</span
+        <span
+          class={`${styles.nameBlockEl} ${styles[format]}`}
+          data-block="text-block">{name}</span
+        >
+        <span
+          class={`${styles.nameBlockEl} ${styles[format]}`}
+          data-block="text-block">{surname}</span
         >
       </div>
       <div class={styles.ageBlock} data-container="text-container">
         <div class={styles.ageWrap}>
           {#if age}
-            <span class={styles.age} data-block="text-block">{age}</span>
+            <span
+              class={`${styles.age} ${styles[format]}`}
+              data-block="text-block">{age}</span
+            >
           {/if}
-          <span class={styles.age} data-block="text-block">{agePostfix}</span>
+          <span
+            class={`${styles.age} ${styles[format]}`}
+            data-block="text-block">{agePostfix}</span
+          >
         </div>
         <span class={styles.birthdate} data-block="text-block">
           {#if birthdate}

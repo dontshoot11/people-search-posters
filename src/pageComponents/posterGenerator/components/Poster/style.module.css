@@ -100,6 +100,12 @@
 
 .nameBlockEl {
   display: inline-block;
+  &.igstory {
+    max-height: 42rem;
+  }
+  &.igpost {
+    max-height: 40rem;
+  }
 }
 
 .ageBlock {
@@ -114,6 +120,12 @@
   font-weight: 900;
   font-size: 24rem;
   line-height: normal;
+  &.igstory {
+    max-height: 32rem;
+  }
+  &.igpost {
+    max-height: 32rem;
+  }
 }
 
 .birthdate {
@@ -129,9 +141,11 @@
   line-height: normal;
   &.igstory {
     font-size: 16rem;
+    max-height: 260rem;
   }
   &.igpost {
     font-size: 14rem;
+    max-height: 170rem;
   }
 }
 
@@ -171,13 +185,15 @@
   justify-content: center;
   &.igstory {
     font-size: 72rem;
+    max-height: 260rem;
     letter-spacing: -2.5rem;
-    padding: 0.33em 0 0.5em 0;
+    margin: 0.33em 0 0.5em 0;
     text-align: center;
     justify-content: center;
   }
   &.igpost {
     font-size: 32rem;
+    max-height: 70rem;
     text-align: start;
     justify-content: start;
   }
@@ -202,7 +218,6 @@
 
 .contacts {
   font-weight: 900;
-
   line-height: normal;
   white-space: nowrap;
   display: flex;
@@ -218,11 +233,13 @@
     flex-shrink: 0;
   }
   &.igstory {
-    padding: 0.79em 0;
+    margin: 0.79em 0;
     font-size: 38rem;
+    max-height: 42rem;
   }
   &.igpost {
-    padding: 0.2em 0;
+    margin: 0.2em 0;
     font-size: 36rem;
+    max-height: 42rem;
   }
 }

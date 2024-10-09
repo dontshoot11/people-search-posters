@@ -1,9 +1,6 @@
 let initialFontSizes = new Map<HTMLElement, number>();
-let initialBlockHeights = new Map<HTMLElement, number>();
 
 export function adjustFontSize() {
-  let maxHeightMultiplier = 2;
-
   if (typeof document !== "undefined") {
     const textBlocks = document.querySelectorAll(
       '[data-block="text-block"]'
@@ -17,6 +14,7 @@ export function adjustFontSize() {
       if (!container) return;
 
       const containerStyle = window.getComputedStyle(container);
+      const textBlockStyle = window.getComputedStyle(textBlock);
       const htmlElement = document.querySelector("html") as HTMLElement;
       const htmlFontSize = parseFloat(
         window.getComputedStyle(htmlElement).fontSize
@@ -32,19 +30,14 @@ export function adjustFontSize() {
         initialFontSizes.set(textBlock, fontSizeRem);
       }
 
-      if (!initialBlockHeights.has(textBlock)) {
-        initialBlockHeights.set(textBlock, textBlock.scrollHeight);
-      }
-
       const initialFontSizeRem = initialFontSizes.get(textBlock) || fontSizeRem;
-      const initialBlockHeight =
-        initialBlockHeights.get(textBlock) || textBlock.scrollHeight;
+
+      const maxHeight = parseFloat(textBlockStyle.maxHeight);
 
       const decreaseText = () => {
         while (
           (textBlock.scrollWidth > containerWidth ||
-            textBlock.scrollHeight >
-              initialBlockHeight * maxHeightMultiplier) &&
+            (maxHeight && textBlock.scrollHeight > maxHeight)) &&
           fontSizeRem > 6
         ) {
           fontSizeRem -= 0.1;
@@ -55,7 +48,7 @@ export function adjustFontSize() {
       const increaseText = () => {
         while (
           textBlock.scrollWidth <= containerWidth &&
-          textBlock.scrollHeight <= initialBlockHeight * maxHeightMultiplier &&
+          (!maxHeight || textBlock.scrollHeight <= maxHeight) &&
           fontSizeRem < initialFontSizeRem
         ) {
           fontSizeRem += 0.1;
@@ -66,7 +59,7 @@ export function adjustFontSize() {
       requestAnimationFrame(() => {
         if (
           textBlock.scrollWidth > containerWidth ||
-          textBlock.scrollHeight > initialBlockHeight * maxHeightMultiplier
+          (maxHeight && textBlock.scrollHeight > maxHeight)
         ) {
           decreaseText();
         } else if (fontSizeRem < initialFontSizeRem) {
@@ -88,7 +81,6 @@ export function resetFontSize() {
     });
 
     initialFontSizes.clear();
-    initialBlockHeights.clear();
     setTimeout(() => {
       adjustFontSize();
     }, 50);
