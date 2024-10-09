@@ -2,6 +2,8 @@ let initialFontSizes = new Map<HTMLElement, number>();
 let initialBlockHeights = new Map<HTMLElement, number>();
 
 export function adjustFontSize() {
+  let maxHeightMultiplier = 2;
+
   if (typeof document !== "undefined") {
     const textBlocks = document.querySelectorAll(
       '[data-block="text-block"]'
@@ -41,7 +43,8 @@ export function adjustFontSize() {
       const decreaseText = () => {
         while (
           (textBlock.scrollWidth > containerWidth ||
-            textBlock.scrollHeight > initialBlockHeight * 2) &&
+            textBlock.scrollHeight >
+              initialBlockHeight * maxHeightMultiplier) &&
           fontSizeRem > 6
         ) {
           fontSizeRem -= 0.1;
@@ -52,7 +55,7 @@ export function adjustFontSize() {
       const increaseText = () => {
         while (
           textBlock.scrollWidth <= containerWidth &&
-          textBlock.scrollHeight <= initialBlockHeight * 2 &&
+          textBlock.scrollHeight <= initialBlockHeight * maxHeightMultiplier &&
           fontSizeRem < initialFontSizeRem
         ) {
           fontSizeRem += 0.1;
@@ -63,7 +66,7 @@ export function adjustFontSize() {
       requestAnimationFrame(() => {
         if (
           textBlock.scrollWidth > containerWidth ||
-          textBlock.scrollHeight > initialBlockHeight * 1.5
+          textBlock.scrollHeight > initialBlockHeight * maxHeightMultiplier
         ) {
           decreaseText();
         } else if (fontSizeRem < initialFontSizeRem) {
@@ -71,5 +74,23 @@ export function adjustFontSize() {
         }
       });
     });
+  }
+}
+
+export function resetFontSize() {
+  if (typeof document !== "undefined") {
+    const textBlocks = document.querySelectorAll(
+      '[data-block="text-block"]'
+    ) as NodeListOf<HTMLElement>;
+
+    textBlocks.forEach((textBlock) => {
+      textBlock.style.removeProperty("font-size");
+    });
+
+    initialFontSizes.clear();
+    initialBlockHeights.clear();
+    setTimeout(() => {
+      adjustFontSize();
+    }, 50);
   }
 }

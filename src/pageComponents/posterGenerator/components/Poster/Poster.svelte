@@ -1,7 +1,6 @@
 <script lang="ts">
   import { get } from "svelte/store";
   import { formData } from "../../../../stores/formStore";
-  import { adjustFontSize } from "../../../../utils/adjustFontSize";
 
   import styles from "./style.module.css";
 
@@ -44,10 +43,6 @@
     photoPositionX = data.photoPositionX;
     showImageLabel = data.showImageLabel;
   });
-
-  $: formData.subscribe(() => {
-    adjustFontSize();
-  });
 </script>
 
 <div
@@ -55,13 +50,23 @@
   class={`${styles.poster} ${styles[format]}`}
   data-container="text-container"
 >
-  <div class={styles.infoBlock}>
+  {#if format === "igpost"}
+    <div class={`${styles.titleWrap} ${styles[format]}`}>
+      <div class={`${styles.title} ${styles[format]}`} data-block="text-block">
+        {title}
+      </div>
+    </div>
+  {/if}
+  <div class={`${styles.infoBlock} ${styles[format]}`}>
     <div
-      class={`${styles.photoWrap} ${showImageLabel && styles.imageLabel}`}
+      class={`${styles.photoWrap} ${styles[format]} ${showImageLabel && styles.imageLabel}`}
       style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: {photoScale}%; "
     ></div>
-    <div class={styles.infoBlockTextContent}>
-      <div class={styles.nameBlock} data-container="text-container">
+    <div class={`${styles.infoBlockTextContent} ${styles[format]}`}>
+      <div
+        class={`${styles.nameBlock} ${styles[format]}`}
+        data-container="text-container"
+      >
         <span class={styles.nameBlockEl} data-block="text-block">{name}</span>
         <span class={styles.nameBlockEl} data-block="text-block">{surname}</span
         >
@@ -80,29 +85,45 @@
         </span>
       </div>
       <div
-        class={styles.circumstancesBlock}
+        class={`${styles.circumstancesBlock} ${styles[format]}`}
         data-container="text-container"
         data-block="text-block"
       >
-        <div class={styles.circumstancesBlockEl}>
+        <div class={`${styles.circumstancesBlockEl} ${styles[format]}`}>
           {location}
         </div>
-        <div class={styles.circumstancesBlockEl}>
+        <div class={`${styles.circumstancesBlockEl} ${styles[format]}`}>
           {circumstances}
         </div>
-        <div class={styles.circumstancesBlockEl}>
+        <div class={`${styles.circumstancesBlockEl} ${styles[format]}`}>
           {identifyingFeatures}
         </div>
       </div>
+      {#if note.length > 0 && format === "igpost"}
+        <div class={`${styles.note} ${styles[format]}`} data-block="text-block">
+          {note}
+        </div>
+      {/if}
     </div>
   </div>
   <div class={styles.contactsBlock}>
-    <div class={styles.titleWrap}>
-      <div class={styles.title} data-block="text-block">{title}</div>
-    </div>
-    {#if note.length > 0}
-      <div class={styles.note} data-block="text-block">{note}</div>
+    {#if format === "igstory"}
+      <div class={`${styles.titleWrap} ${styles[format]}`}>
+        <div
+          class={`${styles.title} ${styles[format]}`}
+          data-block="text-block"
+        >
+          {title}
+        </div>
+      </div>
     {/if}
-    <div class={styles.contacts} data-block="text-block">{contacts}</div>
+    {#if note.length > 0 && format === "igstory"}
+      <div class={`${styles.note} ${styles[format]}`} data-block="text-block">
+        {note}
+      </div>
+    {/if}
+    <div class={`${styles.contacts} ${styles[format]}`} data-block="text-block">
+      {contacts}
+    </div>
   </div>
 </div>

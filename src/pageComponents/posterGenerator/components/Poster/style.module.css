@@ -8,6 +8,12 @@
   &.igstory {
     width: 540rem;
     height: 960rem;
+    padding: 33rem;
+  }
+  &.igpost {
+    width: 540rem;
+    height: 540rem;
+    padding: 10rem 10rem 10rem 33rem;
   }
 }
 
@@ -19,13 +25,33 @@
     &:before {
       content: "";
       position: absolute;
+      flex-shrink: 0;
       background: url("./img/find_me.svg") no-repeat center;
       background-size: contain;
-      height: 75rem;
-      width: 75rem;
-      flex-shrink: 0;
-      bottom: -20rem;
-      left: -20rem;
+    }
+  }
+  &.igstory {
+    width: 219rem;
+    height: 336rem;
+    &.imageLabel {
+      &:before {
+        height: 75rem;
+        width: 75rem;
+        bottom: -20rem;
+        left: -20rem;
+      }
+    }
+  }
+  &.igpost {
+    width: 248rem;
+    height: 320rem;
+    &.imageLabel {
+      &:before {
+        height: 55rem;
+        width: 55rem;
+        bottom: -10rem;
+        left: -10rem;
+      }
     }
   }
 }
@@ -33,25 +59,43 @@
 .infoBlock {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12rem;
   border-bottom: 3rem solid var(--accent-color);
   padding-bottom: 33rem;
+  &.igstory {
+    gap: 12rem;
+    padding-bottom: 33rem;
+  }
+  &.igpost {
+    padding-top: 1em;
+    gap: 16rem;
+    padding-bottom: 1em;
+  }
 }
 
 .infoBlockTextContent {
   flex: 1;
   overflow: hidden;
+  &.igpost {
+    padding-top: 6rem;
+  }
 }
 
 .nameBlock {
   background-color: var(--accent-color);
   color: var(--bg-color);
-  font-size: 40rem;
   line-height: normal;
   font-weight: 900;
   padding: 4rem 14rem;
   display: flex;
   flex-direction: column;
+  &.igstory {
+    font-size: 40rem;
+    padding: 4rem 14rem;
+  }
+  &.igpost {
+    font-size: 32rem;
+    padding: 0 8rem;
+  }
 }
 
 .nameBlockEl {
@@ -83,54 +127,82 @@
   color: var(--font-secondary);
   font-size: 16rem;
   line-height: normal;
+  &.igstory {
+    font-size: 16rem;
+  }
+  &.igpost {
+    font-size: 14rem;
+  }
 }
 
 .circumstancesBlockEl {
-  margin-top: 1em;
   white-space: pre-wrap;
+  margin-top: 1em;
 }
 
 .contactsBlock {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .titleWrap {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   border-bottom: 3rem solid var(--accent-color);
+  &.igstory {
+    align-items: center;
+    justify-content: center;
+  }
+  &.igpost {
+    padding-bottom: 6rem;
+    align-items: start;
+    justify-content: center;
+  }
 }
 
 .title {
-  padding: 0.33em 0 0.5em 0;
   font-weight: 900;
-  font-size: 72rem;
   line-height: normal;
-  letter-spacing: -2.5rem;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  &.igstory {
+    font-size: 72rem;
+    letter-spacing: -2.5rem;
+    padding: 0.33em 0 0.5em 0;
+    text-align: center;
+    justify-content: center;
+  }
+  &.igpost {
+    font-size: 32rem;
+    text-align: start;
+    justify-content: start;
+  }
 }
 
 .note {
-  padding: 0.8em 0 1.2em 0;
   font-weight: 900;
-  font-size: 25rem;
   line-height: normal;
-  border-bottom: 3rem solid var(--accent-color);
   text-align: center;
+  &.igstory {
+    padding: 0.8em 0 1.2em 0;
+    font-size: 25rem;
+    border-bottom: 3rem solid var(--accent-color);
+  }
+  &.igpost {
+    padding: 1em 0 0 0;
+    font-size: 16rem;
+    text-align: start;
+    justify-content: start;
+  }
 }
 
 .contacts {
-  padding: 0.79em 0;
   font-weight: 900;
-  font-size: 38rem;
+
   line-height: normal;
   white-space: nowrap;
   display: flex;
@@ -145,11 +217,12 @@
     width: 1em;
     flex-shrink: 0;
   }
-}
-
-.igstory {
-  .photoWrap {
-    width: 219rem;
-    height: 336rem;
+  &.igstory {
+    padding: 0.79em 0;
+    font-size: 38rem;
+  }
+  &.igpost {
+    padding: 0.2em 0;
+    font-size: 36rem;
   }
 }

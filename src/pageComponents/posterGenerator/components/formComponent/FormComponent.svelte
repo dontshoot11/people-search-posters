@@ -3,6 +3,10 @@
   import { formData } from "../../../../stores/formStore";
   import { get } from "svelte/store";
   import { generateFile } from "../../../../utils/generateFile";
+  import {
+    adjustFontSize,
+    resetFontSize,
+  } from "../../../../utils/adjustFontSize";
 
   import type { TFormData } from "../../../../types/types";
 
@@ -54,7 +58,6 @@
       ) {
         calculatedAge--;
       }
-
       updateField("age", calculatedAge);
     }
   }
@@ -62,11 +65,13 @@
   function handleInput(event: Event, field: keyof TFormData) {
     const target = event.target as HTMLInputElement;
     updateField(field, target.value);
+    adjustFontSize();
   }
 
   function handleSelect(event: Event) {
     const target = event.target as HTMLSelectElement;
     updateField("format", target.value as TFormData["format"]);
+    resetFontSize();
   }
 
   function handleCheckboxChange(event: Event) {
@@ -245,7 +250,7 @@
       class={styles.textareaSmall}
       bind:value={note}
       on:input={(e) => handleInput(e, "note")}
-      placeholder="note"
+      placeholder="Additional information"
     ></textarea>
   </label>
   <label class={styles.label}>

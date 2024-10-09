@@ -15,7 +15,7 @@ const imgSizes = {
   },
   igstory: {
     width: 1080,
-    height: 1920,
+    height: 1080,
   },
   igpost: {
     width: 1080,
