@@ -139,6 +139,7 @@
   color: var(--font-secondary);
   font-size: 16rem;
   line-height: normal;
+  display: inline-block;
   &.igstory {
     font-size: 16rem;
     max-height: 260rem;
