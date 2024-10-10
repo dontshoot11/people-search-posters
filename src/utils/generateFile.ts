@@ -33,39 +33,34 @@ export const generateFile = async () => {
     const rect = element.getBoundingClientRect();
     const canvasWidth = rect.width;
     const canvasHeight = rect.height;
-    const scaleX = imgSizes[format].width / canvasWidth;
-    const scaleY = imgSizes[format].height / canvasHeight;
-    const scale = Math.min(scaleX, scaleY);
+    const scale = 6;
+
+    const canvas = await html2canvas(element, {
+      scale: scale,
+      logging: false,
+      width: canvasWidth,
+      height: canvasHeight,
+    });
+
+    const imgData = canvas.toDataURL("image/png", 1.0);
+
     if (format === "pdf") {
-      const canvas = await html2canvas(element, {
-        scale: 3,
-        logging: false,
-        width: canvasWidth,
-        height: canvasHeight,
-      });
-
-      const imgData = canvas.toDataURL("image/jpeg", 1.0);
-
       const pdf = new jsPDF({
         orientation: canvasWidth > canvasHeight ? "landscape" : "portrait",
-        unit: "px",
-        format: [canvasWidth, canvasHeight],
+        unit: "in",
+        format: [canvasWidth / 96, canvasHeight / 96],
       });
 
-      pdf.addImage(imgData, "JPEG", 0, 0, canvasWidth, canvasHeight);
+      const dpi = 300;
+      const widthInInches = imgSizes[format].width / dpi;
+      const heightInInches = imgSizes[format].height / dpi;
+
+      pdf.addImage(imgData, "PNG", 0, 0, widthInInches, heightInInches);
       pdf.save("poster.pdf");
     } else {
-      const canvas = await html2canvas(element, {
-        scale: scale,
-        logging: false,
-        width: canvasWidth,
-        height: canvasHeight,
-      });
-
-      const imgData = canvas.toDataURL("image/jpeg", 1);
       const link = document.createElement("a");
       link.href = imgData;
-      link.download = "poster.jpg";
+      link.download = "poster.png";
       link.click();
     }
   }
