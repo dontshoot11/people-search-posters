@@ -2,18 +2,23 @@
   flex-shrink: 0;
   border: 12rem dashed var(--accent-color);
   padding: 33rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+
   &.igstory {
     width: 540rem;
     height: 960rem;
     padding: 33rem;
+    grid-template-rows: 1fr 1fr;
   }
   &.igpost {
     width: 540rem;
     height: 540rem;
     padding: 10rem 10rem 10rem 33rem;
+  }
+  &.fbpost {
+    width: 600rem;
+    height: 378rem;
+    padding: 16rem;
   }
 }
 
@@ -54,21 +59,34 @@
       }
     }
   }
+  &.fbpost {
+    width: 248rem;
+    height: 314rem;
+    &.imageLabel {
+      &:before {
+        height: 40rem;
+        width: 40rem;
+        top: 0rem;
+        right: -10rem;
+      }
+    }
+  }
 }
 
 .infoBlock {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 3rem solid var(--accent-color);
-  padding-bottom: 33rem;
+  height: 100%;
   &.igstory {
     gap: 12rem;
     padding-bottom: 33rem;
+    border-bottom: 3rem solid var(--accent-color);
   }
   &.igpost {
     padding-top: 1em;
     gap: 16rem;
     padding-bottom: 1em;
+    border-bottom: 3rem solid var(--accent-color);
   }
 }
 
@@ -78,6 +96,10 @@
   &.igpost {
     padding-top: 6rem;
   }
+  &.fbpost {
+    display: grid;
+    align-items: start;
+  }
 }
 
 .nameBlock {
@@ -85,7 +107,6 @@
   color: var(--bg-color);
   line-height: normal;
   font-weight: 900;
-  padding: 4rem 14rem;
   display: flex;
   flex-direction: column;
   &.igstory {
@@ -95,6 +116,12 @@
   &.igpost {
     font-size: 32rem;
     padding: 0 8rem;
+  }
+  &.fbpost {
+    margin-top: 0.4em;
+    font-size: 18rem;
+    padding: 6rem 8rem;
+    max-width: 210rem;
   }
 }
 
@@ -110,34 +137,54 @@
 
 .ageBlock {
   color: var(--font-secondary);
-  margin-top: 1em;
   display: flex;
   align-items: center;
   gap: 0.5em;
+  &.igstory {
+    margin-top: 1em;
+  }
+  &.igpost {
+    margin-top: 1em;
+  }
+  &.fbpost {
+    margin-top: 0.2em;
+  }
 }
 
 .age {
   font-weight: 900;
-  font-size: 24rem;
   line-height: normal;
   &.igstory {
+    font-size: 24rem;
     max-height: 32rem;
   }
   &.igpost {
+    font-size: 24rem;
+    max-height: 32rem;
+  }
+  &.fbpost {
+    font-size: 18rem;
     max-height: 32rem;
   }
 }
 
 .birthdate {
-  font-size: 16rem;
   line-height: normal;
   height: 1em;
   min-width: 3em;
+  &.igstory {
+    font-size: 16rem;
+  }
+  &.igpost {
+    font-size: 16rem;
+  }
+  &.fbpost {
+    font-size: 10rem;
+  }
 }
 
 .circumstancesBlock {
   color: var(--font-secondary);
-  font-size: 16rem;
   line-height: normal;
   display: inline-block;
   &.igstory {
@@ -147,6 +194,12 @@
   &.igpost {
     font-size: 14rem;
     max-height: 170rem;
+  }
+
+  &.fbpost {
+    font-size: 12rem;
+    max-height: 120rem;
+    max-width: 210rem;
   }
 }
 
@@ -163,16 +216,22 @@
 }
 
 .titleWrap {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  border-bottom: 3rem solid var(--accent-color);
+
   &.igstory {
+    height: 100%;
     align-items: center;
     justify-content: center;
+    border-bottom: 3rem solid var(--accent-color);
   }
   &.igpost {
     padding-bottom: 6rem;
+    align-items: start;
+    justify-content: center;
+    border-bottom: 3rem solid var(--accent-color);
+  }
+  &.fbpost {
     align-items: start;
     justify-content: center;
   }
@@ -198,6 +257,12 @@
     text-align: start;
     justify-content: start;
   }
+  &.fbpost {
+    font-size: 24rem;
+    max-height: 50rem;
+    text-align: start;
+    justify-content: start;
+  }
 }
 
 .note {
@@ -215,6 +280,11 @@
     text-align: start;
     justify-content: start;
   }
+  &.fbpost {
+    padding: 1em 0 0 0;
+    text-align: start;
+    justify-content: start;
+  }
 }
 
 .contacts {
@@ -222,8 +292,7 @@
   line-height: normal;
   white-space: nowrap;
   display: flex;
-  align-items: center;
-  justify-content: center;
+
   gap: 0.5em;
   &:before {
     content: "";
@@ -237,10 +306,23 @@
     margin: 0.79em 0;
     font-size: 38rem;
     max-height: 42rem;
+    align-items: center;
+    justify-content: center;
   }
   &.igpost {
     margin: 0.2em 0;
     font-size: 36rem;
     max-height: 42rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &.fbpost {
+    margin: 0.2em 0;
+    font-size: 20rem;
+    max-height: 40rem;
+    border-top: 3rem solid var(--accent-color);
+    padding-top: 12rem;
+    align-items: center;
+    justify-content: start;
   }
 }

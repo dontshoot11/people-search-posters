@@ -63,6 +63,16 @@
       style="background-image: url({file}); background-position: {photoPositionX}% {photoPositionY}%; background-size: {photoScale}%; "
     ></div>
     <div class={`${styles.infoBlockTextContent} ${styles[format]}`}>
+      {#if format === "fbpost"}
+        <div class={`${styles.titleWrap} ${styles[format]}`}>
+          <div
+            class={`${styles.title} ${styles[format]}`}
+            data-block="text-block"
+          >
+            {title}
+          </div>
+        </div>
+      {/if}
       <div
         class={`${styles.nameBlock} ${styles[format]}`}
         data-container="text-container"
@@ -76,7 +86,10 @@
           data-block="text-block">{surname}</span
         >
       </div>
-      <div class={styles.ageBlock} data-container="text-container">
+      <div
+        class={`${styles.ageBlock} ${styles[format]}`}
+        data-container="text-container"
+      >
         <div class={styles.ageWrap}>
           {#if age}
             <span
@@ -89,7 +102,10 @@
             data-block="text-block">{agePostfix}</span
           >
         </div>
-        <span class={styles.birthdate} data-block="text-block">
+        <span
+          class={`${styles.birthdate} ${styles[format]}`}
+          data-block="text-block"
+        >
           {#if birthdate}
             ({birthdate})
           {/if}
@@ -109,32 +125,56 @@
         <div class={`${styles.circumstancesBlockEl} ${styles[format]}`}>
           {identifyingFeatures}
         </div>
+        {#if note.length > 0 && format === "fbpost"}
+          <div
+            class={`${styles.note} ${styles[format]}`}
+            data-block="text-block"
+          >
+            {note}
+          </div>
+        {/if}
       </div>
       {#if note.length > 0 && format === "igpost"}
         <div class={`${styles.note} ${styles[format]}`} data-block="text-block">
           {note}
         </div>
       {/if}
-    </div>
-  </div>
-  <div class={styles.contactsBlock}>
-    {#if format === "igstory"}
-      <div class={`${styles.titleWrap} ${styles[format]}`}>
+
+      {#if format === "fbpost"}
         <div
-          class={`${styles.title} ${styles[format]}`}
+          class={`${styles.contacts} ${styles[format]}`}
           data-block="text-block"
         >
-          {title}
+          {contacts}
         </div>
-      </div>
-    {/if}
-    {#if note.length > 0 && format === "igstory"}
-      <div class={`${styles.note} ${styles[format]}`} data-block="text-block">
-        {note}
-      </div>
-    {/if}
-    <div class={`${styles.contacts} ${styles[format]}`} data-block="text-block">
-      {contacts}
+      {/if}
     </div>
   </div>
+  {#if format === "igstory" || format === "igpost"}
+    <div class={styles.contactsBlock}>
+      {#if format === "igstory"}
+        <div class={`${styles.titleWrap} ${styles[format]}`}>
+          <div
+            class={`${styles.title} ${styles[format]}`}
+            data-block="text-block"
+          >
+            {title}
+          </div>
+        </div>
+      {/if}
+      {#if note.length > 0 && format === "igstory"}
+        <div class={`${styles.note} ${styles[format]}`} data-block="text-block">
+          {note}
+        </div>
+      {/if}
+      {#if format === "igstory" || format === "igpost"}
+        <div
+          class={`${styles.contacts} ${styles[format]}`}
+          data-block="text-block"
+        >
+          {contacts}
+        </div>
+      {/if}
+    </div>
+  {/if}
 </div>

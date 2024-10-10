@@ -58,11 +58,11 @@ export const generateFile = async () => {
       const canvas = await html2canvas(element, {
         scale: scale,
         logging: false,
-        width: canvasWidth, // Текущая ширина элемента
+        width: canvasWidth,
         height: canvasHeight,
       });
 
-      const imgData = canvas.toDataURL("image/jpeg", 0.98);
+      const imgData = canvas.toDataURL("image/jpeg", 1);
       const link = document.createElement("a");
       link.href = imgData;
       link.download = "poster.jpg";
