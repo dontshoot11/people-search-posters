@@ -1,24 +1,28 @@
 .poster {
   flex-shrink: 0;
-  border: 12rem dashed var(--accent-color);
-  padding: 33rem;
+  border: 24px dashed var(--accent-color);
   display: grid;
+  transform: scale(0.5);
+  transform-origin: center top;
+  @media (min-width: 1200px) {
+    transform-origin: left top;
+  }
 
   &.igstory {
-    width: 540rem;
-    height: 960rem;
-    padding: 33rem;
+    width: 1080px;
+    height: 1920px;
+    padding: 66px;
     grid-template-rows: 1fr 1fr;
   }
   &.igpost {
-    width: 540rem;
-    height: 540rem;
-    padding: 10rem 10rem 10rem 33rem;
+    width: 1080px;
+    height: 1080px;
+    padding: 20px 20px 20px 66px;
   }
   &.fbpost {
-    width: 600rem;
-    height: 378rem;
-    padding: 16rem;
+    width: 1200px;
+    height: 756px;
+    padding: 32px;
   }
 }
 
@@ -36,38 +40,38 @@
     }
   }
   &.igstory {
-    width: 219rem;
-    height: 336rem;
+    width: 438px;
+    height: 672px;
     &.imageLabel {
       &:before {
-        height: 75rem;
-        width: 75rem;
-        bottom: -20rem;
-        left: -20rem;
+        height: 150px;
+        width: 150px;
+        bottom: -40px;
+        left: -40px;
       }
     }
   }
   &.igpost {
-    width: 248rem;
-    height: 320rem;
+    width: 496px;
+    height: 640px;
     &.imageLabel {
       &:before {
-        height: 55rem;
-        width: 55rem;
-        bottom: -10rem;
-        left: -10rem;
+        height: 110px;
+        width: 110px;
+        bottom: -20px;
+        left: -20px;
       }
     }
   }
   &.fbpost {
-    width: 248rem;
-    height: 314rem;
+    width: 496px;
+    height: 628px;
     &.imageLabel {
       &:before {
-        height: 40rem;
-        width: 40rem;
-        top: 0rem;
-        right: -10rem;
+        height: 80px;
+        width: 80px;
+        top: 0px;
+        right: -20px;
       }
     }
   }
@@ -78,15 +82,15 @@
   grid-template-columns: 1fr 1fr;
   height: 100%;
   &.igstory {
-    gap: 12rem;
-    padding-bottom: 33rem;
-    border-bottom: 3rem solid var(--accent-color);
+    gap: 24px;
+    padding-bottom: 66px;
+    border-bottom: 6px solid var(--accent-color);
   }
   &.igpost {
     padding-top: 1em;
-    gap: 16rem;
+    gap: 32px;
     padding-bottom: 1em;
-    border-bottom: 3rem solid var(--accent-color);
+    border-bottom: 6px solid var(--accent-color);
   }
 }
 
@@ -94,7 +98,7 @@
   flex: 1;
   overflow: hidden;
   &.igpost {
-    padding-top: 6rem;
+    padding-top: 12px;
   }
   &.fbpost {
     display: grid;
@@ -110,28 +114,28 @@
   display: flex;
   flex-direction: column;
   &.igstory {
-    font-size: 40rem;
-    padding: 4rem 14rem;
+    font-size: 80px;
+    padding: 8px 28px;
   }
   &.igpost {
-    font-size: 32rem;
-    padding: 0 8rem;
+    font-size: 64px;
+    padding: 0 16px;
   }
   &.fbpost {
     margin-top: 0.4em;
-    font-size: 18rem;
-    padding: 6rem 8rem;
-    max-width: 210rem;
+    font-size: 36px;
+    padding: 12px 16px;
+    max-width: 420px;
   }
 }
 
 .nameBlockEl {
   display: inline-block;
   &.igstory {
-    max-height: 42rem;
+    max-height: 84px;
   }
   &.igpost {
-    max-height: 40rem;
+    max-height: 80px;
   }
 }
 
@@ -155,16 +159,16 @@
   font-weight: 900;
   line-height: normal;
   &.igstory {
-    font-size: 24rem;
-    max-height: 32rem;
+    font-size: 48px;
+    max-height: 64px;
   }
   &.igpost {
-    font-size: 24rem;
-    max-height: 32rem;
+    font-size: 48px;
+    max-height: 64px;
   }
   &.fbpost {
-    font-size: 18rem;
-    max-height: 32rem;
+    font-size: 36px;
+    max-height: 64px;
   }
 }
 
@@ -173,13 +177,13 @@
   height: 1em;
   min-width: 3em;
   &.igstory {
-    font-size: 16rem;
+    font-size: 32px;
   }
   &.igpost {
-    font-size: 16rem;
+    font-size: 32px;
   }
   &.fbpost {
-    font-size: 10rem;
+    font-size: 20px;
   }
 }
 
@@ -188,18 +192,18 @@
   line-height: normal;
   display: inline-block;
   &.igstory {
-    font-size: 16rem;
-    max-height: 260rem;
+    font-size: 32px;
+    max-height: 520px;
   }
   &.igpost {
-    font-size: 14rem;
-    max-height: 170rem;
+    font-size: 28px;
+    max-height: 340px;
   }
 
   &.fbpost {
-    font-size: 12rem;
-    max-height: 120rem;
-    max-width: 210rem;
+    font-size: 24px;
+    max-height: 240px;
+    max-width: 420px;
   }
 }
 
@@ -223,13 +227,13 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    border-bottom: 3rem solid var(--accent-color);
+    border-bottom: 6px solid var(--accent-color);
   }
   &.igpost {
-    padding-bottom: 6rem;
+    padding-bottom: 12px;
     align-items: start;
     justify-content: center;
-    border-bottom: 3rem solid var(--accent-color);
+    border-bottom: 6px solid var(--accent-color);
   }
   &.fbpost {
     align-items: start;
@@ -244,22 +248,21 @@
   align-items: center;
   justify-content: center;
   &.igstory {
-    font-size: 72rem;
-    max-height: 260rem;
-    letter-spacing: -2.5rem;
+    font-size: 144px;
+    max-height: 520px;
     margin: 0.33em 0 0.5em 0;
     text-align: center;
     justify-content: center;
   }
   &.igpost {
-    font-size: 32rem;
-    max-height: 70rem;
+    font-size: 64px;
+    max-height: 140px;
     text-align: start;
     justify-content: start;
   }
   &.fbpost {
-    font-size: 24rem;
-    max-height: 50rem;
+    font-size: 48px;
+    max-height: 100px;
     text-align: start;
     justify-content: start;
   }
@@ -271,12 +274,12 @@
   text-align: center;
   &.igstory {
     padding: 0.8em 0 1.2em 0;
-    font-size: 25rem;
-    border-bottom: 3rem solid var(--accent-color);
+    font-size: 50px;
+    border-bottom: 6px solid var(--accent-color);
   }
   &.igpost {
     padding: 1em 0 0 0;
-    font-size: 16rem;
+    font-size: 32px;
     text-align: start;
     justify-content: start;
   }
@@ -304,24 +307,24 @@
   }
   &.igstory {
     margin: 0.79em 0;
-    font-size: 38rem;
-    max-height: 42rem;
+    font-size: 76px;
+    max-height: 84px;
     align-items: center;
     justify-content: center;
   }
   &.igpost {
     margin: 0.2em 0;
-    font-size: 36rem;
-    max-height: 42rem;
+    font-size: 72px;
+    max-height: 84px;
     align-items: center;
     justify-content: center;
   }
   &.fbpost {
     margin: 0.2em 0;
-    font-size: 20rem;
-    max-height: 40rem;
-    border-top: 3rem solid var(--accent-color);
-    padding-top: 12rem;
+    font-size: 40px;
+    max-height: 80px;
+    border-top: 6px solid var(--accent-color);
+    padding-top: 24px;
     align-items: center;
     justify-content: start;
   }

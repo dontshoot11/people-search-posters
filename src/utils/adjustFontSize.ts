@@ -15,22 +15,17 @@ export function adjustFontSize() {
 
       const containerStyle = window.getComputedStyle(container);
       const textBlockStyle = window.getComputedStyle(textBlock);
-      const htmlElement = document.querySelector("html") as HTMLElement;
-      const htmlFontSize = parseFloat(
-        window.getComputedStyle(htmlElement).fontSize
-      );
       const paddingLeft = parseFloat(containerStyle.paddingLeft);
       const paddingRight = parseFloat(containerStyle.paddingRight);
       const containerWidth = container.clientWidth - paddingLeft - paddingRight;
 
-      let fontSizeRem =
-        parseFloat(window.getComputedStyle(textBlock).fontSize) / htmlFontSize;
+      let fontSize = parseFloat(window.getComputedStyle(textBlock).fontSize);
 
       if (!initialFontSizes.has(textBlock)) {
-        initialFontSizes.set(textBlock, fontSizeRem);
+        initialFontSizes.set(textBlock, fontSize);
       }
 
-      const initialFontSizeRem = initialFontSizes.get(textBlock) || fontSizeRem;
+      const initialFontSize = initialFontSizes.get(textBlock) || fontSize;
 
       const maxHeight = parseFloat(textBlockStyle.maxHeight);
 
@@ -38,10 +33,10 @@ export function adjustFontSize() {
         while (
           (textBlock.scrollWidth > containerWidth ||
             (maxHeight && textBlock.scrollHeight > maxHeight)) &&
-          fontSizeRem > 6
+          fontSize > 6
         ) {
-          fontSizeRem -= 0.1;
-          textBlock.style.fontSize = `${fontSizeRem}rem`;
+          fontSize -= 0.1;
+          textBlock.style.fontSize = `${fontSize}px`;
         }
       };
 
@@ -49,10 +44,10 @@ export function adjustFontSize() {
         while (
           textBlock.scrollWidth <= containerWidth &&
           (!maxHeight || textBlock.scrollHeight <= maxHeight) &&
-          fontSizeRem < initialFontSizeRem
+          fontSize < initialFontSize
         ) {
-          fontSizeRem += 0.1;
-          textBlock.style.fontSize = `${fontSizeRem}rem`;
+          fontSize += 0.1;
+          textBlock.style.fontSize = `${fontSize}px`;
         }
       };
 
@@ -62,7 +57,7 @@ export function adjustFontSize() {
           (maxHeight && textBlock.scrollHeight > maxHeight)
         ) {
           decreaseText();
-        } else if (fontSizeRem < initialFontSizeRem) {
+        } else if (fontSize < initialFontSize) {
           increaseText();
         }
       });
@@ -83,6 +78,6 @@ export function resetFontSize() {
     initialFontSizes.clear();
     setTimeout(() => {
       adjustFontSize();
-    }, 50);
+    }, 150);
   }
 }

@@ -7,18 +7,8 @@
   --font-secondary: #070000;
 }
 
-html {
-  font-size: 0.6px;
-  @media (min-width: 460px) {
-    font-size: 0.8px;
-  }
-  @media (min-width: 768px) {
-    font-size: 1px;
-  }
-}
-
 body {
   min-height: 100vh;
-  font-size: 16rem;
+  font-size: 16px;
   font-family: "Inter Variable", sans-serif;
 }

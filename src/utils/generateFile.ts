@@ -33,7 +33,7 @@ export const generateFile = async () => {
     const rect = element.getBoundingClientRect();
     const canvasWidth = rect.width;
     const canvasHeight = rect.height;
-    const scale = 6;
+    const scale = 2;
 
     const canvas = await html2canvas(element, {
       scale: scale,

@@ -1,17 +1,21 @@
 .form {
-  width: 560rem;
+  width: 100;
   display: grid;
-  gap: 16rem;
+  gap: 16px;
   height: fit-content;
+  flex-shrink: 0;
+  @media (min-width: 1200px) {
+    width: 460px;
+  }
 }
 .label {
   display: grid;
-  gap: 6rem;
+  gap: 6px;
 }
 
 .checkbox {
-  width: 20rem;
-  height: 20rem;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
@@ -21,29 +25,29 @@
 
 .format-options {
   display: flex;
-  gap: 20rem;
+  gap: 20px;
 }
 
 .textareaBig {
-  min-height: 100rem;
+  min-height: 100px;
 }
 
 .textareaSmall {
-  min-height: 50rem;
+  min-height: 50px;
 }
 
 .formGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rem;
+  gap: 20px;
 }
 
 .button {
   cursor: pointer;
   background-color: var(--accent-color);
   color: var(--bg-color);
-  height: 40rem;
-  width: 240rem;
+  height: 40px;
+  width: 240px;
   border-radius: 8px;
   transition: border-radius 300ms;
   &:hover {
@@ -53,17 +57,17 @@
 
 .imageSettings {
   z-index: 999;
-  padding: 20rem;
-  width: 200rem;
+  padding: 20px;
+  width: 200px;
   background-color: var(--bg-color);
   border-radius: 16px;
   position: absolute;
-  right: 20rem;
-  bottom: 20rem;
+  right: 20px;
+  bottom: 20px;
   border: 1px solid var(--accent-color);
-  @media (min-width: 960px) {
-    top: 20rem;
-    right: 20rem;
+  @media (min-width: 1200px) {
+    top: 20px;
+    right: 20px;
     bottom: unset;
   }
   input:not(.checkbox) {
