@@ -10,8 +10,8 @@ formData.subscribe((data) => {
 
 const imgSizes = {
   pdf: {
-    width: 1080,
-    height: 1920,
+    width: 595,
+    height: 852,
   },
   igstory: {
     width: 1080,
@@ -47,15 +47,11 @@ export const generateFile = async () => {
     if (format === "pdf") {
       const pdf = new jsPDF({
         orientation: canvasWidth > canvasHeight ? "landscape" : "portrait",
-        unit: "in",
-        format: [canvasWidth / 96, canvasHeight / 96],
+        unit: "px",
+        format: [canvasWidth, canvasHeight],
       });
 
-      const dpi = 300;
-      const widthInInches = imgSizes[format].width / dpi;
-      const heightInInches = imgSizes[format].height / dpi;
-
-      pdf.addImage(imgData, "PNG", 0, 0, widthInInches, heightInInches);
+      pdf.addImage(imgData, "PNG", 0, 0, canvasWidth, canvasHeight);
       pdf.save("poster.pdf");
     } else {
       const link = document.createElement("a");
