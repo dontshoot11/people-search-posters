@@ -8,9 +8,7 @@
 
 .poster {
   flex-shrink: 0;
-  border: 24px dashed var(--accent-color);
   display: grid;
-
   transform-origin: left top;
   @media (min-width: 960px) {
     transform-origin: left top;
@@ -19,8 +17,9 @@
   &.pdf {
     width: 592px;
     height: 852px;
-    padding: 66px;
+    padding: 22px 34px;
     grid-template-rows: 1fr 1fr;
+    border: 16px dashed var(--accent-color);
   }
 
   &.igstory {
@@ -28,16 +27,19 @@
     height: 1920px;
     padding: 66px;
     grid-template-rows: 1fr 1fr;
+    border: 24px dashed var(--accent-color);
   }
   &.igpost {
     width: 1080px;
     height: 1080px;
     padding: 20px 20px 20px 66px;
+    border: 24px dashed var(--accent-color);
   }
   &.fbpost {
     width: 1200px;
     height: 756px;
     padding: 32px;
+    border: 24px dashed var(--accent-color);
   }
 }
 
@@ -52,6 +54,18 @@
       flex-shrink: 0;
       background: url("./img/find_me.svg") no-repeat center;
       background-size: contain;
+    }
+  }
+  &.pdf {
+    width: 238px;
+    height: 355px;
+    &.imageLabel {
+      &:before {
+        height: 62px;
+        width: 62px;
+        bottom: -15px;
+        left: -10px;
+      }
     }
   }
   &.igstory {
@@ -96,6 +110,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100%;
+  &.pdf {
+    gap: 6px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--accent-color);
+  }
   &.igstory {
     gap: 24px;
     padding-bottom: 66px;
@@ -128,6 +147,11 @@
   font-weight: 900;
   display: flex;
   flex-direction: column;
+
+  &.pdf {
+    font-size: 40px;
+    padding: 6px 14px;
+  }
   &.igstory {
     font-size: 80px;
     padding: 8px 28px;
@@ -146,6 +170,9 @@
 
 .nameBlockEl {
   display: inline-block;
+  &.pdf {
+    max-height: 60px;
+  }
   &.igstory {
     max-height: 84px;
   }
@@ -162,6 +189,10 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
+  &.pdf {
+    margin-left: 12px;
+    margin-top: 1em;
+  }
   &.igstory {
     margin-top: 1em;
   }
@@ -176,6 +207,10 @@
 .age {
   font-weight: 900;
   line-height: normal;
+  &.pdf {
+    font-size: 24px;
+    max-height: 30px;
+  }
   &.igstory {
     font-size: 48px;
     max-height: 64px;
@@ -209,6 +244,12 @@
   color: var(--font-secondary);
   line-height: normal;
   display: inline-block;
+
+  &.pdf {
+    margin-left: 12px;
+    font-size: 16px;
+    max-height: 240px;
+  }
   &.igstory {
     font-size: 32px;
     max-height: 520px;
@@ -231,16 +272,20 @@
 }
 
 .contactsBlock {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+  display: grid;
+  align-items: end;
+  grid-template-rows: 1fr auto;
 }
 
 .titleWrap {
   display: flex;
   flex-direction: column;
-
+  &.pdf {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--accent-color);
+  }
   &.igstory {
     height: 100%;
     align-items: center;
@@ -265,6 +310,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  display: inline-block;
+  &.pdf {
+    font-size: 57px;
+    line-height: 90%;
+    max-height: 200px;
+    margin: 0.33em 0 0.5em 0;
+    text-align: center;
+    justify-content: center;
+  }
   &.igstory {
     font-size: 144px;
     max-height: 520px;
@@ -290,6 +344,12 @@
   font-weight: 900;
   line-height: normal;
   text-align: center;
+  &.pdf {
+    padding: 0.8em 0 1.2em 0;
+    font-size: 26px;
+    border-bottom: 3px solid var(--accent-color);
+    max-height: 62px;
+  }
   &.igstory {
     padding: 0.8em 0 1.2em 0;
     font-size: 50px;
@@ -313,7 +373,6 @@
   line-height: normal;
   white-space: nowrap;
   display: flex;
-
   gap: 0.5em;
   &:before {
     content: "";
@@ -322,6 +381,14 @@
     height: 1em;
     width: 1em;
     flex-shrink: 0;
+  }
+  &.pdf {
+    margin: 0.2em 0;
+    font-size: 42px;
+    max-height: 50px;
+    line-height: 90%;
+    align-items: center;
+    justify-content: center;
   }
   &.igstory {
     margin: 0.79em 0;

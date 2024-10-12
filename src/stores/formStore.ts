@@ -12,7 +12,7 @@ export const formData = writable<TFormData>({
   circumstances: "Circumstances of disappearance",
   identifyingFeatures: "How would you describe this person?",
   note: "",
-  format: "fbpost",
+  format: "pdf",
   file: "",
   showImageLabel: true,
   photoScale: 100,

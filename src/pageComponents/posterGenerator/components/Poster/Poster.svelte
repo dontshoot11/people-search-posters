@@ -2,7 +2,10 @@
   import { get } from "svelte/store";
   import { formData } from "../../../../stores/formStore";
   import { onMount } from "svelte";
-  import { adjustPosterSize } from "../../../../utils/adjustPosterSize";
+  import {
+    adjustPosterSize,
+    resetPosterSize,
+  } from "../../../../utils/adjustPosterSize";
 
   import styles from "./style.module.css";
 
@@ -51,6 +54,7 @@
   });
   if (typeof window !== "undefined") {
     window.addEventListener("resize", () => {
+      resetPosterSize();
       adjustPosterSize();
     });
   }
@@ -157,7 +161,6 @@
             {note}
           </div>
         {/if}
-
         {#if format === "fbpost"}
           <div
             class={`${styles.contacts} ${styles[format]}`}
@@ -168,9 +171,9 @@
         {/if}
       </div>
     </div>
-    {#if format === "igstory" || format === "igpost"}
+    {#if format === "igstory" || format === "igpost" || format === "pdf"}
       <div class={styles.contactsBlock}>
-        {#if format === "igstory"}
+        {#if format === "igstory" || format === "pdf"}
           <div class={`${styles.titleWrap} ${styles[format]}`}>
             <div
               class={`${styles.title} ${styles[format]}`}
@@ -180,7 +183,7 @@
             </div>
           </div>
         {/if}
-        {#if note.length > 0 && format === "igstory"}
+        {#if note.length > 0 && (format === "igstory" || format === "pdf")}
           <div
             class={`${styles.note} ${styles[format]}`}
             data-block="text-block"
@@ -188,7 +191,7 @@
             {note}
           </div>
         {/if}
-        {#if format === "igstory" || format === "igpost"}
+        {#if format === "igstory" || format === "igpost" || format === "pdf"}
           <div
             class={`${styles.contacts} ${styles[format]}`}
             data-block="text-block"
