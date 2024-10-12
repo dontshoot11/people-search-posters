@@ -10,6 +10,7 @@
   flex-shrink: 0;
   display: grid;
   transform-origin: left top;
+  overflow: hidden;
   @media (min-width: 960px) {
     transform-origin: left top;
   }
@@ -280,6 +281,8 @@
 .titleWrap {
   display: flex;
   flex-direction: column;
+  white-space: pre-wrap;
+  overflow: hidden;
   &.pdf {
     height: 100%;
     align-items: center;
@@ -344,11 +347,12 @@
   font-weight: 900;
   line-height: normal;
   text-align: center;
+  white-space: pre-wrap;
   &.pdf {
     padding: 0.8em 0 1.2em 0;
     font-size: 26px;
     border-bottom: 3px solid var(--accent-color);
-    max-height: 62px;
+    max-height: 120px;
   }
   &.igstory {
     padding: 0.8em 0 1.2em 0;
@@ -374,17 +378,10 @@
   white-space: nowrap;
   display: flex;
   gap: 0.5em;
-  &:before {
-    content: "";
-    background: url("./img/phone.svg") no-repeat center;
-    background-size: contain;
-    height: 1em;
-    width: 1em;
-    flex-shrink: 0;
-  }
+
   &.pdf {
     margin: 0.2em 0;
-    font-size: 42px;
+    font-size: 40px;
     max-height: 50px;
     line-height: 90%;
     align-items: center;
@@ -413,4 +410,17 @@
     align-items: center;
     justify-content: start;
   }
+}
+
+.phone {
+  background: url("./img/phone.svg") no-repeat center;
+  background-size: contain;
+  height: 1em;
+  width: 1em;
+  flex-shrink: 0;
+}
+
+[data-block="text-block"] {
+  max-width: 100%;
+  overflow: hidden;
 }

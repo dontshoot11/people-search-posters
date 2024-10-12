@@ -166,7 +166,8 @@
             class={`${styles.contacts} ${styles[format]}`}
             data-block="text-block"
           >
-            {contacts}
+            <span class={styles.phone}></span>
+            <span> {contacts}</span>
           </div>
         {/if}
       </div>
@@ -196,7 +197,8 @@
             class={`${styles.contacts} ${styles[format]}`}
             data-block="text-block"
           >
-            {contacts}
+            <span class={styles.phone}></span>
+            <span> {contacts}</span>
           </div>
         {/if}
       </div>
