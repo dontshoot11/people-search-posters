@@ -1,10 +1,18 @@
+.posterWrap {
+  max-width: 100%;
+  max-height: 100vh;
+  @media (min-width: 960px) {
+    max-width: calc(100% - 500px);
+  }
+}
+
 .poster {
   flex-shrink: 0;
   border: 24px dashed var(--accent-color);
   display: grid;
 
-  transform-origin: center top;
-  @media (min-width: 1200px) {
+  transform-origin: left top;
+  @media (min-width: 960px) {
     transform-origin: left top;
   }
 
@@ -16,20 +24,17 @@
   }
 
   &.igstory {
-    transform: scale(0.5);
     width: 1080px;
     height: 1920px;
     padding: 66px;
     grid-template-rows: 1fr 1fr;
   }
   &.igpost {
-    transform: scale(0.5);
     width: 1080px;
     height: 1080px;
     padding: 20px 20px 20px 66px;
   }
   &.fbpost {
-    transform: scale(0.5);
     width: 1200px;
     height: 756px;
     padding: 32px;

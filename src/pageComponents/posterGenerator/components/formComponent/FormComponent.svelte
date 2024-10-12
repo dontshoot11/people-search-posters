@@ -8,6 +8,8 @@
     resetFontSize,
   } from "../../../../utils/adjustFontSize";
 
+  import { adjustPosterSize } from "../../../../utils/adjustPosterSize";
+
   import type { TFormData } from "../../../../types/types";
 
   import styles from "./style.module.css";
@@ -72,6 +74,7 @@
     const target = event.target as HTMLSelectElement;
     updateField("format", target.value as TFormData["format"]);
     resetFontSize();
+    adjustPosterSize();
   }
 
   function handleCheckboxChange(event: Event) {
