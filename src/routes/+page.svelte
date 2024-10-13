@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Missing people poster generator</title>
+  <meta name="description" content="Missing people poster generator" />
 </svelte:head>
 
 <section>
