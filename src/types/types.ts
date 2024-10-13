@@ -19,3 +19,5 @@ export type TFormData = {
   photoPositionY: number;
   format: TFormat;
 };
+
+export type TTheme = "default" | "bw";

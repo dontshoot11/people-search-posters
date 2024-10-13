@@ -413,8 +413,7 @@
 }
 
 .phone {
-  background: url("./img/phone.svg") no-repeat center;
-  background-size: contain;
+  background: url("./img/phone.svg") no-repeat center / contain;
   height: 1em;
   width: 1em;
   flex-shrink: 0;
@@ -423,4 +422,24 @@
 [data-block="text-block"] {
   max-width: 100%;
   overflow: hidden;
+}
+
+[data-theme="default"] {
+  .photoWrap {
+    &.imageLabel {
+      &:before {
+        background: url("./img/find_me.svg") no-repeat center / contain;
+      }
+    }
+  }
+}
+
+[data-theme="bw"] {
+  .photoWrap {
+    &.imageLabel {
+      &:before {
+        background: url("./img/find_me_bw.svg") no-repeat center / contain;
+      }
+    }
+  }
 }

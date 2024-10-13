@@ -2,9 +2,16 @@
 
 :root {
   --bg-color: #fff;
-  --accent-color: #ff5c00;
   --font-main: #000;
   --font-secondary: #070000;
+}
+
+[data-theme="default"] {
+  --accent-color: #ff5c00;
+}
+
+[data-theme="bw"] {
+  --accent-color: #000;
 }
 
 body {
