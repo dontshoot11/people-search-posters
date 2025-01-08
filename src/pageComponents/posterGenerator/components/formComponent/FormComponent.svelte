@@ -1,4 +1,3 @@
-<!-- FormComponent.svelte -->
 <script lang="ts">
   import { formData } from "../../../../stores/formStore";
   import { get } from "svelte/store";
@@ -32,9 +31,9 @@
     photoScale,
     photoPositionX,
     photoPositionY,
-  } = get(formData);
+  } = $state(get(formData));
 
-  let showImageSettings = false;
+  let showImageSettings = $state(false);
 
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
@@ -107,7 +106,8 @@
 
 <form
   class={styles.form}
-  on:submit|preventDefault={() => {
+  onsubmit={(event) => {
+    event.preventDefault();
     generateFile();
   }}
 >
@@ -117,7 +117,7 @@
       <input
         type="text"
         bind:value={name}
-        on:input={(e) => handleInput(e, "name")}
+        oninput={(e) => handleInput(e, "name")}
         required
         placeholder="Name"
       />
@@ -127,7 +127,7 @@
       <input
         type="text"
         bind:value={surname}
-        on:input={(e) => handleInput(e, "surname")}
+        oninput={(e) => handleInput(e, "surname")}
         required
         placeholder="Surname"
       />
@@ -136,7 +136,7 @@
   <div class={styles.formGrid}>
     <label class={styles.label}>
       Upload Photo
-      <input type="file" accept="image/*" on:change={handleFileUpload} />
+      <input type="file" accept="image/*" onchange={handleFileUpload} />
     </label>
     <label class={styles.label}>
       Show image settings
@@ -156,7 +156,7 @@
             min="0"
             max="500"
             bind:value={photoScale}
-            on:input={(e) => handleInput(e, "photoScale")}
+            oninput={(e) => handleInput(e, "photoScale")}
           />
         </label>
         <label class={styles.label}>
@@ -167,7 +167,7 @@
             min="0"
             max="100"
             bind:value={photoPositionX}
-            on:input={(e) => handleInput(e, "photoPositionX")}
+            oninput={(e) => handleInput(e, "photoPositionX")}
           />
         </label>
         <label class={styles.label}>
@@ -178,7 +178,7 @@
             min="0"
             max="100"
             bind:value={photoPositionY}
-            on:input={(e) => handleInput(e, "photoPositionY")}
+            oninput={(e) => handleInput(e, "photoPositionY")}
           />
         </label>
         <label class={styles.label}>
@@ -186,7 +186,7 @@
           <input
             class={styles.checkbox}
             type="checkbox"
-            on:change={(e) => handleCheckboxChange(e)}
+            onchange={(e) => handleCheckboxChange(e)}
             bind:checked={showImageLabel}
           />
         </label>
@@ -199,7 +199,7 @@
       <input
         type="text"
         bind:value={agePostfix}
-        on:input={(e) => handleInput(e, "agePostfix")}
+        oninput={(e) => handleInput(e, "agePostfix")}
         placeholder="Enter age postfix"
       />
     </label>
@@ -209,7 +209,7 @@
         class={styles.datePicker}
         type="date"
         max={`${currentYear}-12-31`}
-        on:change={handleDateChange}
+        onchange={handleDateChange}
         placeholder="Select birth date"
       />
     </label>
@@ -219,7 +219,7 @@
     <input
       type="location"
       bind:value={location}
-      on:input={(e) => handleInput(e, "location")}
+      oninput={(e) => handleInput(e, "location")}
       required
       placeholder="Last known location"
     />
@@ -229,7 +229,7 @@
     <textarea
       class={styles.textareaBig}
       bind:value={circumstances}
-      on:input={(e) => handleInput(e, "circumstances")}
+      oninput={(e) => handleInput(e, "circumstances")}
       required
       placeholder="Circumstances of the missing"
     ></textarea>
@@ -239,7 +239,7 @@
     <textarea
       class={styles.textareaBig}
       bind:value={identifyingFeatures}
-      on:input={(e) => handleInput(e, "identifyingFeatures")}
+      oninput={(e) => handleInput(e, "identifyingFeatures")}
       placeholder="Identifying features"
       required
     ></textarea>
@@ -249,7 +249,7 @@
     <textarea
       class={styles.textareaSmall}
       bind:value={title}
-      on:input={(e) => handleInput(e, "title")}
+      oninput={(e) => handleInput(e, "title")}
       placeholder="title"
       required
     ></textarea>
@@ -259,7 +259,7 @@
     <textarea
       class={styles.textareaSmall}
       bind:value={note}
-      on:input={(e) => handleInput(e, "note")}
+      oninput={(e) => handleInput(e, "note")}
       placeholder="Additional information"
     ></textarea>
   </label>
@@ -267,7 +267,7 @@
     Contacts
     <input
       bind:value={contacts}
-      on:input={(e) => handleInput(e, "contacts")}
+      oninput={(e) => handleInput(e, "contacts")}
       placeholder="contacts"
       required
     />
@@ -277,7 +277,7 @@
     <select
       id="format-select"
       bind:value={format}
-      on:change={handleSelect}
+      onchange={handleSelect}
       class={styles.select}
     >
       <option value="pdf">A4 PDF</option>

@@ -27,7 +27,7 @@
     photoPositionY,
     photoPositionX,
     showImageLabel,
-  } = get(formData);
+  } = $state(get(formData));
 
   formData.subscribe((data) => {
     title = data.title;

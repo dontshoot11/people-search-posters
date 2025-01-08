@@ -2,11 +2,12 @@
   import "../reset.css";
   import "@fontsource-variable/inter";
   import "../app.css";
+  let { children } = $props();
 </script>
 
 <div class="app">
   <main>
-    <slot />
+    {@render children?.()}
   </main>
 </div>
 
