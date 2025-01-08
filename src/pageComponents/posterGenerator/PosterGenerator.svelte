@@ -4,7 +4,7 @@
   import FormComponent from "./components/formComponent/FormComponent.svelte";
   import Poster from "./components/Poster/Poster.svelte";
 
-  import { formData } from "../../stores/formStore";
+  import { formData } from "formStore";
 
   import styles from "./style.module.css";
 

@@ -1,11 +1,11 @@
 import html2canvas from "html2canvas";
 import { get } from "svelte/store";
 import jsPDF from "jspdf";
-import { formData } from "../stores/formStore";
+import { formData } from "formStore";
 import { adjustPosterSize, resetPosterSize } from "./adjustPosterSize";
 import { changeTheme } from "./changeTheme";
 
-import type { TTheme } from "../types/types";
+import type { TTheme } from "types";
 
 let { format } = get(formData);
 formData.subscribe((data) => {

@@ -1,11 +1,8 @@
 <script lang="ts">
   import { get } from "svelte/store";
-  import { formData } from "../../../../stores/formStore";
+  import { formData } from "formStore";
   import { onMount } from "svelte";
-  import {
-    adjustPosterSize,
-    resetPosterSize,
-  } from "../../../../utils/adjustPosterSize";
+  import { adjustPosterSize, resetPosterSize } from "utils/adjustPosterSize";
 
   import styles from "./style.module.css";
 

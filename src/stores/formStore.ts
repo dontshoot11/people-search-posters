@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { TFormData } from "../types/types";
+import type { TFormData } from "types";
 
 export const formData = writable<TFormData>({
   title: "Poster title",

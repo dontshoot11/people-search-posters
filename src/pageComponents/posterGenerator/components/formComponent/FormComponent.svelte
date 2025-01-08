@@ -1,18 +1,12 @@
 <script lang="ts">
-  import { formData } from "../../../../stores/formStore";
+  import { formData } from "formStore";
   import { get } from "svelte/store";
-  import { generateFile } from "../../../../utils/generateFile";
-  import {
-    adjustFontSize,
-    resetFontSize,
-  } from "../../../../utils/adjustFontSize";
+  import { generateFile } from "utils/generateFile";
+  import { adjustFontSize, resetFontSize } from "utils/adjustFontSize";
 
-  import {
-    adjustPosterSize,
-    resetPosterSize,
-  } from "../../../../utils/adjustPosterSize";
+  import { adjustPosterSize, resetPosterSize } from "utils/adjustPosterSize";
 
-  import type { TFormData } from "../../../../types/types";
+  import type { TFormData } from "types";
 
   import styles from "./style.module.css";
 
